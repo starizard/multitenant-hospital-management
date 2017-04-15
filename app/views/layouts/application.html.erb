@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HospitalManagement</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+ 
+  <li>
+  <%= link_to('Logout', destroy_hospital_session_path, :method => :delete) %>        
+  </li>
+
+  <li>
+  <%= link_to('Login', new_hospital_session_path)  %>  
+  </li>
+
+    <%= yield %>
+    <%= console %>
+  </body>
+</html>
