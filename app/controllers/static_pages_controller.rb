@@ -14,7 +14,7 @@ class StaticPagesController < ApplicationController
 
   def go_to_subdomain
   	if hospital_signed_in? 
-  		@curr_url = "http://"+current_hospital.subdomain+".lvh.me:3000"
+  		@curr_url = "http://"+current_hospital.subdomain+".muten.org"
 		end
     redirect_to @curr_url 
   end
