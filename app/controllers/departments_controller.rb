@@ -1,5 +1,6 @@
 class DepartmentsController < ApplicationController
   before_action :set_department, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_person! 
 
   # GET /departments
   # GET /departments.json
@@ -10,6 +11,9 @@ class DepartmentsController < ApplicationController
   # GET /departments/1
   # GET /departments/1.json
   def show
+    if !@department.doctor_ids.nil?
+      @doctors = @department.doctors
+    end
   end
 
   # GET /departments/new

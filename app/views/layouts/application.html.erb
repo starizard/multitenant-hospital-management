@@ -9,15 +9,27 @@
   </head>
 
   <body>
- 
-  <li>
-  <%= link_to('Logout', destroy_hospital_session_path, :method => :delete) %>        
-  </li>
+<%if person_signed_in? %>
+  <% if doctor_signed_in? %>
+      <li>
+      <%= link_to('Doctor Logout', destroy_doctor_session_path, :method => :delete) %>        
+      </li>
+     <% elsif user_signed_in? %>
+      <li>
+      <%= link_to('Patient Logout', destroy_user_session_path, :method => :delete) %>        
+      </li>
+  <% end%>
+<% else %>
+    <li>
+    <%= link_to('Doctor Login', new_doctor_session_path)  %>  
+    </li>
 
-  <li>
-  <%= link_to('Login', new_hospital_session_path)  %>  
-  </li>
 
+    <li>
+    <%= link_to('Patient Login', new_user_session_path)  %>  
+    </li>
+<% end %>
+<%= params.inspect %>
     <%= yield %>
     <%= console %>
   </body>

@@ -9,6 +9,13 @@
   <strong>Description:</strong>
   <%= @department.description %>
 </p>
+<p>
+ <h1>Doctor List:</h1>
+ <br>
+  <% @doctors.each do |doct| %>
+  	<h2><%= doct.name %></h2>
+  	<li><%= link_to "Doctor Profile", doctor_show_path(doct) %> </li>
+  <% end %>
+</p>
 
-<%= link_to 'Edit', edit_department_path(@department) %> |
-<%= link_to 'Back', departments_path %>
+	<%= link_to 'Back', departments_path %>
