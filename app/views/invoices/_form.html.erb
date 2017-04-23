@@ -1,0 +1,49 @@
+<style type="text/css">
+  @media print{
+    .printme , header, input, th, .meta span, p, aside{
+      
+      margin-right: 2vw;
+    }
+   .printme{
+    position: fixed;
+    
+    visibility: true;
+    transform: scale(1.01,1.0);
+   }
+   nav{
+    display:none;
+   }
+   button,.btn-large{
+    display:none;
+   }
+  }
+
+
+</style>
+<%= javascript_include_tag "invoices" %>
+<div class="printme" id="prints">
+  
+
+<%= render 'invoice' %>
+</div>
+<hr>
+<%= simple_form_for(@invoice) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs" >
+    <div style="display: none">
+      <%= f.input :user %>
+      <%= f.input :doctor %>
+      <%= f.input :amount %>
+      <%= f.input :invoice_number %>
+      <%= f.input :notes %>
+    </div>
+</div>
+  <div class="form-actions">
+    <%= f.button :submit,class: 'btn-large ' %>
+  </div>
+
+<% end %>
+
+<br/>
+<button href="#" onclick= "printDiv();return false;" class="waves-effect waves-light btn-large green ">PRINT</button>

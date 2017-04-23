@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+
+  resources :invoices
+  resources :staffs
+  resources :reports
   resources :appointments
   get 'doctor/profile'
+  patch 'doctor/profile', as: 'toggle_doctor_status',controller: :doctor, action: 'toggle_doctor'
   get 'doctor/:id' ,to: 'doctor#show', as:'doctor_show'
 
   get 'user/profile'

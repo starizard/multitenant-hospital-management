@@ -1,8 +1,10 @@
 class StaticPagesController < ApplicationController
 	 # before_filter:go_to_subdomain, if: :hospital_signed_in?, only: :home
+
   def home
   	@person = current_person 
-  	@hospital = request.base_url.split('//').second.split('.').first
+  	@hname = request.base_url.split('//').second.split('.').first
+    @root = 'lvh'
 
   end
 

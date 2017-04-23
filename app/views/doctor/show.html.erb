@@ -1,2 +1,53 @@
-<h1><b> Name:</b> <%=@doctor.name.titleize%></h1>
-<h1><b> Email:</b> <%=@doctor.email%></h1>
+  <div class="col s12 m7">
+
+    <div class="card horizontal hover">
+      <div class="card-image">
+        <img src="<%=@doctor.image%>">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          	<h4><%= @doctor.name %></h4>
+          	
+          	<p><%= @doctor.email%></p>
+          	
+          	<p><%= @doctor.phone%></p>
+          	<p><%= @doctor.position%></p>
+          	
+          	<p><%= @doctor.department.dname%></p>
+        </div>
+       </div>
+      </div>
+      <div class="card">
+      	<div class="card-content center">
+      		<h5>Joined <%=distance_of_time_in_words(Date.today,@doctor.joined)%> ago</h5>
+      	</div>
+      </div>
+      <div class="card">
+
+          <div class="card-content">
+   			<span class="card-title">
+	          <h3> About <%= @doctor.name.titleize %></h3>
+	        </span>
+          	<div><%= @doctor.about%></div>
+        </div>
+       </div>
+       <div class="card">
+          <div class="card-content">
+   			<span class="card-title">
+	          <h3> Qualification</h3>
+	        </span>
+          	<div><%= @doctor.qualification%></div>
+        </div>
+       </div>
+
+
+    </div>
+  </div>
+           
+	
+
+
+
+
+
+

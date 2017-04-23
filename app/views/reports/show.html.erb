@@ -1,0 +1,94 @@
+<style type="text/css">
+    #sig{
+      color: white;
+    }
+  @media print{
+    button{
+      display: none;
+    }
+    .btn{
+      display: none;
+    }
+    nav a i{
+    display:none;
+  }
+   .brand-logo{
+    margin-left:20px;
+
+   }
+    nav ul{
+    display:none;
+  }
+  .button-collapse{
+    display: none;
+  }
+  .card{
+    height: 85vh;
+  }
+  #dates{
+    font-size: 13px;
+  }
+  #doc,#patient{
+    font-size: 14px;
+  }
+
+  #sig{
+    
+    margin-top: 1vh;
+    color: black;
+    font-size: 14px;
+  }
+  #notice {
+    display: none;
+  }
+}
+
+</style>
+
+
+<p id="notice"><%= notice %></p>
+
+<br/>
+<div class="card">
+<div class="card-content">
+<div class="row">
+      <div class="col s6" id="doc"><%=@report.doctor.name %>
+        <p><%=@report.doctor.position%></p>
+        <%=@report.doctor.department.dname%>
+      </div>
+      <div class="col s3"></div>
+      <div class="col s3" id="dates">
+      <b>Date: </b><%=@report.pdate.strftime("%d %B %Y")%>
+      <p><b>Time: </b><%=@report.ptime.strftime("%H:%M") %></p>
+
+      </div>
+</div>
+<div id="patient">
+<p><b>Patient name: </b><%= @report.user.name %></p>
+<p><b>Patient id: </b><%= "#"+@hname.slice(0,3).upcase+"PNT"+@report.user.id.to_s %></p>
+</div>
+  <br>
+<hr>
+
+
+  <b>Notes and Diagnosis:</b>
+   <br>
+ <p> <%= @report.notes %></p>
+  <br>
+   <br>
+
+  <br>
+<hr>
+<div>
+
+  <b>Prescription:</b>
+   <br>
+ <p> <%= @report.prescription %></p>
+  <br> <br>
+  <br>
+</div>
+<div class="card-action">
+<button href="#" onclick= "window.print();return false;" class="waves-effect waves-light btn">PRINT</button></div>
+<b class="right" id="sig">Doctors signature:</b>
+</div>
+</div>

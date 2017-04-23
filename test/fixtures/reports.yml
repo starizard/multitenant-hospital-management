@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  doctor: one
+  user: one
+  pdate: 2017-04-20
+  ptime: 2017-04-20 18:14:23
+  notes: MyText
+  prescription: MyText
+
+two:
+  doctor: two
+  user: two
+  pdate: 2017-04-20
+  ptime: 2017-04-20 18:14:23
+  notes: MyText
+  prescription: MyText

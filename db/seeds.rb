@@ -1,7 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Hospital.create!([
+  {email: "admin@apollo.com", encrypted_password: "$2a$11$tKREn1j3zf/V.v8ag3KfjuWhhxkr3TqwYiJTNN6dkf.NXaz3hOWFe", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2017-04-16 14:09:00", last_sign_in_at: "2017-04-16 14:09:00", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", subdomain: "apollo"},
+  {email: "admin@fortis.com", encrypted_password: "$2a$11$XccF5K3yDV6FyS/A8bZFb.N03BDibB2jl2i4aBiAWpcN.ME/dE91i", reset_password_token: nil, reset_password_sent_at: "2017-04-16 19:40:00", remember_created_at: nil, sign_in_count: 9, current_sign_in_at: "2017-04-22 18:46:11", last_sign_in_at: "2017-04-22 14:02:14", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", subdomain: "fortis"}
+])

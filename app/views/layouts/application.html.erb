@@ -1,36 +1,84 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>HospitalManagement</title>
+  <head> 
+    <title><%=@hname.titleize%></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+   
   </head>
 
   <body>
-<%if person_signed_in? %>
-  <% if doctor_signed_in? %>
-      <li>
-      <%= link_to('Doctor Logout', destroy_doctor_session_path, :method => :delete) %>        
-      </li>
-     <% elsif user_signed_in? %>
-      <li>
-      <%= link_to('Patient Logout', destroy_user_session_path, :method => :delete) %>        
-      </li>
-  <% end%>
-<% else %>
-    <li>
-    <%= link_to('Doctor Login', new_doctor_session_path)  %>  
-    </li>
+  <div class="navbar-fixed">
+    <nav>
+
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo"><%=@hname.titleize%></a>
+          
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul  class="right hide-on-med-and-down">
+            <%if person_signed_in? %>
+              <% if doctor_signed_in? %>
+                  <li>
+                  <%= link_to 'Dashboard', doctor_profile_path %>  
+                  </li>
+                  <li>
+                  <%= link_to 'Logout', destroy_doctor_session_path, :method => :delete  %>        
+                  </li>
+                 <% elsif user_signed_in? %>
+                  <li>
+                  <%= link_to('Patient Logout', destroy_user_session_path, :method => :delete) %>        
+                  </li>
+              <% end%>
+            <% else %>
+                <li>
+                <%= link_to('Doctor Login', new_doctor_session_path)  %>  
+                </li>
 
 
-    <li>
-    <%= link_to('Patient Login', new_user_session_path)  %>  
-    </li>
-<% end %>
+                <li>
+                <%= link_to('Patient Login', new_user_session_path)  %>  
+                </li>
+            <% end %>
+          </ul>
 
-    <%= yield %>
-   
+          <ul id="mobile-demo" class="side-nav">
+            <%if person_signed_in? %>
+              <% if doctor_signed_in? %>
+                  <li>
+                  <%= link_to 'Dashboard', doctor_profile_path %>  
+                  </li>
+                  <li>
+                  <%= link_to 'Logout', destroy_doctor_session_path, :method => :delete  %>        
+                  </li>
+                 <% elsif user_signed_in? %>
+                 <li><%= link_to 'Dashboard', user_profile_path %>  </li>
+                  <li>
+                  <%= link_to('Patient Logout', destroy_user_session_path, :method => :delete) %>        
+                  </li>
+              <% end%>
+
+            <% else %>
+                <li>
+                <%= link_to('Doctor Login', new_doctor_session_path)  %>  
+                </li>
+
+
+                <li>
+                <%= link_to('Patient Login', new_user_session_path)  %>  
+                </li>
+            <% end %>
+          </ul>
+    </div>
+  </nav>
+  </div>
+    <div class="container">
+
+      <%= yield %>
+    </div>
+   <%= console %>
   </body>
 </html>

@@ -1,5 +1,51 @@
+  <div class="col s12 m7">
 
-<h2>Name: <%= @doctor.name %> </h2>
-<h3>Email: <%= @doctor.email %></h3>
-<%= link_to "Edit Profile", edit_doctor_registration_path %>
+    <div class="card horizontal hover">
+      <div class="card-image">
+        <img src="<%=@doctor.image%>">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          	<h4><%= @doctor.name %></h4>
+          	<p><%= @doctor.email%></p>
+          	<p><%= @doctor.phone%></p>
+          	<p><%= @doctor.department.dname%></p>
 
+        </div>
+        <div class="card-action">
+          <i class="mode_edit"></i><%= link_to "Edit Profile", edit_doctor_registration_path, :class=>"waves-effect waves-light btn pulse"%>
+          <span class="switch right">
+           <%= link_to "#{ @doctor.available ? 'Available' : 'Not available' }", toggle_doctor_status_path, method: :patch, class: "waves-effect waves btn #{@doctor.available ? 'indigo accent-1': 'red'}" %>
+           </span>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+           
+	
+
+
+
+
+
+
+<div class="card">
+	<div class="card-title center-align"><h3>Appointments</h3></div>
+		<div class ="collection">
+						<% @appointments.each do |appointment| %>
+					     <% @ad = appointment.appointment_date %>
+					     <% @at = appointment.appointment_time %>
+					     <% @dt = DateTime.new(@ad.year, @ad.month, @ad.day, @at.hour, @at.min, @at.sec, Time.now.zone)%>
+
+						<%if @dt >= DateTime.now %>
+					    <a href="<%=new_report_path(apo: appointment)%>" class="collection-item card-content">	       
+					     <span><b> <%= appointment.user.name%></b></span>
+					     <span class="right"><b>In <%= distance_of_time_in_words(Time.now,@dt)%></b></span>
+				        </a>
+				        <%end%>
+				<%end%>
+			
+		</div>
+</div>

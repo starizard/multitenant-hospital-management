@@ -2,7 +2,7 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
-    <div class="field">
+    <div class="input-field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true %>
   </div>
@@ -10,11 +10,18 @@
 
 
 
-  <div class="field">
+  <div class="input-field">
     <%= f.label :email %><br />
     <%= f.email_field :email %>
   </div>
-   
+     <div class="input-field">
+    <%= f.label :age%><br />
+    <%= f.text_field :email %>
+  </div>
+    <div class="input-field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>

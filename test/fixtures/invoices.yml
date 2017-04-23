@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: MyString
+  doctor: MyString
+  amount: 1
+  invoice_number: MyString
+  notes: MyText
+
+two:
+  user: MyString
+  doctor: MyString
+  amount: 1
+  invoice_number: MyString
+  notes: MyText

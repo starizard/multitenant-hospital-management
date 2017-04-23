@@ -1,21 +1,37 @@
+
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title"><%= @department.dname %></span>
+
+              <hr>
+				<p>
+				  <%= @department.description %>
+				</p>
+            </div>
+
+          </div>
+
+            
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Dname:</strong>
-  <%= @department.dname %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @department.description %>
-</p>
-<p>
- <h1>Doctor List:</h1>
- <br>
-  <% @doctors.each do |doct| %>
-  	<h2><%= doct.name %></h2>
-  	<li><%= link_to "Doctor Profile", doctor_show_path(doct) %> </li>
-  <% end %>
-</p>
+<div class="card">
+  <div class="card-content">
+  	  <div class="card-title "><h4>Our Doctors</h4></div>
+  </div>
 
-	<%= link_to 'Back', departments_path %>
+    <div class="collection">
+		 <% @doctors.each do |doct| %>
+		
+		<a href="<%=doctor_show_path(doct) %>" class="collection-item">
+			  <p><b><%= doct.name %></b>
+
+		      </p>
+		</a>
+
+		<%end%>
+	</div>
+	  <div class="card-content">
+		<%= link_to 'Back', departments_path, class: "waves-effect waves btn-large" %>
+	</div>
+</div>

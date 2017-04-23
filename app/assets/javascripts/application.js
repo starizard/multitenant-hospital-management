@@ -12,5 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require materialize
 //= require turbolinks
 //= require_tree .
+  $(document).ready(function() {
+  $('select').material_select();
+  $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 2 // Creates a dropdown of 15 years to control year
+  });
+$(".button-collapse").sideNav();
+        
+});

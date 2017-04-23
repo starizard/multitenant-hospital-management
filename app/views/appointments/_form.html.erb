@@ -1,3 +1,6 @@
+
+<%= javascript_include_tag "materialform" %>
+<div class="row">
 <%= form_for(appointment) do |f| %>
   <% if appointment.errors.any? %>
     <div id="error_explanation">
@@ -11,27 +14,35 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :appointment_date %>
-    <%= f.date_select :appointment_date %>
+    <label for=""> <%= f.label :appointment_date %></label>
+  <div class="input-field">
+    <%= f.text_field :appointment_date,:class=>"datepicker"%>
   </div>
 
-  <div class="field">
+
+
+  
     <%= f.label :appointment_time %>
-    <%= f.time_select :appointment_time, {minute_step: 20,ampm: true} %>
+  <div class="input-field" style="width:25%">
+    <%= f.time_select :appointment_time, {minute_step: 20,ampm: true,start_hour: 8,end_hour:21 } %>
   </div>
 
-  <div class="field">
-    <%= f.label :user_id %>
-   <%= collection_select(:appointment,:user_id,User.all,:id,:name)%>
-  </div>
+  
+    
 
-  <div class="field">
-    <%= f.label :doctor_id %>
-    <%= collection_select(:appointment,:doctor_id,Doctor.all,:id,:name)%>
+   <!--  #collection_select(:appointment,:user_id,User.all,:id,:name) -->
+  
+
+  
+   <label>Currently available doctors</label>
+  <div class="input-field">
+
+    <%= collection_select(:appointment,:doctor_id,Doctor.where(available: true),:id,:name)%>
   </div>
   
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+</div>

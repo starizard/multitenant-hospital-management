@@ -1,0 +1,17 @@
+
+<%= javascript_include_tag "materialform" %>
+<%= simple_form_for(@staff) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :position %>
+    <%= f.input :joined,as: :string, input_html: {class: "datepicker" }%>
+    <%= f.input :phone %>
+    <%= f.input :image %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,37 @@
+<div class="row">
+
+
+
+					<div class="card card red  lighten-1 ">
+						<div class="card-content white-text center-align valign">
+
+						<h2> Welcome to <%=@hname.titleize%> Hospitals </h2>
+						<hr>
+							<% if person_signed_in? %>
+							<div class="card-title ">
+									 <h5>Hello <%= @person.name.titleize%></h5>
+							</div>
+								
+									 <% if user_signed_in? %>
+									 <%= link_to "Go to Dashboard", user_profile_path, class: 'waves-effect waves-light btn-large' %>
+									 <% else %>
+									 <%= link_to "Go to Dashboard", doctor_profile_path, class: 'waves-effect waves-light btn-large'%>
+									 <% end%>
+
+
+							<%= link_to "Departments", departments_path, class: 'waves-effect waves-light btn-large indigo'%>  
+							<% else %>
+								<% if hospital_signed_in? %>
+								 <%= link_to "Admin Dashboard", "/admin", class: 'waves-effect waves-light btn-large indigo' %>
+								 <%=link_to "Hospital sign out", destroy_hospital_session_path, method: :delete, class: 'waves-effect waves-light btn-large orange' %>
+								<% else%>
+								  <%= link_to "Admin Login", new_hospital_session_path, class: 'waves-effect waves-light btn-large' %>
+								
+								 <%= link_to "Patient Login", new_user_session_path, class: 'waves-effect waves-light btn-large' %>
+								 <%= link_to "Doctor Login", new_doctor_session_path, class: 'waves-effect waves-light btn-large' %>
+								<%end%>
+							<% end%>
+					   </div>
+				 </div>	
+					
+			</div>

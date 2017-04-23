@@ -1,5 +1,10 @@
 <h1>New Appointment</h1>
+<div class="card">
+  <div class="card-content">
+  		<%= render 'form', appointment: @appointment %>
+  </div>
 
-<%= render 'form', appointment: @appointment %>
+
+</div>
 
 <%= link_to 'Back', appointments_path %>
