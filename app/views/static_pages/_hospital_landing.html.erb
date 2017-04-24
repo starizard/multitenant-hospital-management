@@ -14,8 +14,8 @@
         
 					<div class="card card " id="home">
 						<div class="card-content brown-text center-align valign">
-
-						<%= image_tag(@this_hospital.home_image1, size: "1800x800",class: "responsive-img")%>
+						<img src="<%= @this_hospital.home_image1 %>" size= "1800x800" class= "responsive-img">
+						
 
 						<h2> Welcome to <%=@hname.titleize%> Hospitals </h2>
 						<hr>
