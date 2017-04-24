@@ -3,8 +3,8 @@ class StaticPagesController < ApplicationController
 
   def home
   	@person = current_person 
-  	@hname = request.base_url.split('//').second.split('.').first
-    @root = 'muten'
+  	#@hname = request.base_url.split('//').second.split('.').first
+    #@root = 'muten'
 
   end
 
