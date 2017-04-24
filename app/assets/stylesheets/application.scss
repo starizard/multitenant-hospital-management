@@ -5,5 +5,32 @@ textarea {
   width:100%;
 }
 .brand-logo{
-	margin-left:5px;
+   margin-left:2vw;
+   
+   
+   font-family:'Exo',sans-serif;
+   font-size:x-large;
+}
+h1,h2,h3{
+   font-family:'Exo',sans-serif;
+   font-size:xx-large;
+	
+}
+*{
+
+	font-family: Roboto,sans-serif;
+	font-weight: 500;
+
+}
+body{
+	background-color: #fff9c4 ;
+
+
+}
+p{
+	line-height:200%;
+	font-size:1.5rem;
+}
+#error_explanation{
+	background-color:#e57373;
 }

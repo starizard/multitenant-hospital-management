@@ -397,6 +397,7 @@
 
 		  // set total
 		  cells[0].innerHTML = total;
+		 
 
 		  // set balance and meta balance
 		  cells[2].innerHTML = document.querySelector('table.meta tr:last-child td:last-child span:last-child').innerHTML = parsePrice(total - parseFloatHTML(cells[1]));
@@ -506,7 +507,7 @@
     <p><br></p>
     <p></p>
   </address>
-  <span><img alt="" src="https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/022011/fortis_logo.png"><input type="file" accept="image/*"></span>
+  <span><img alt="" src="<%=@this_hospital.logo %>" width="280"><input type="file" accept="image/*"></span>
 </header>
 <article>
 
@@ -568,8 +569,9 @@
   </table>
 </article>
 <aside>
-  <h1><span contenteditable  >Additional Notes</span></h1>
+  <h1><span contenteditable>Additional Notes</span></h1>
+
   <div contenteditable onblur="capturedata()" id="notes">
-    <p>...</p>
+    <p class="center-align">...</p>
   </div>
 </aside>

@@ -1,9 +1,10 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!
   # GET /appointments
   # GET /appointments.json
   def index
+    redirect_to root_path
     @appointments = Appointment.all.order(:appointment_date,:appointment_time)
   end
 
@@ -30,10 +31,10 @@ class AppointmentsController < ApplicationController
       end
     respond_to do |format|
       if @appointment.save
-        format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
+        format.html { redirect_to @appointment, notice: 'Appointment was successfully booked.' }
         format.json { render :show, status: :created, location: @appointment }
       else
-        format.html { render :new }
+        format.html { redirect_to user_profile_path,notice: 'Appointment could not be booked.'}
         format.json { render json: @appointment.errors, status: :unprocessable_entity }
       end
     end

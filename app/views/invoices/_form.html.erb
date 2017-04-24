@@ -1,14 +1,14 @@
 <style type="text/css">
   @media print{
-    .printme , header, input, th, .meta span, p, aside{
+    .printme , header, input, th, .meta span, p, aside h1{
       
-      margin-right: 2vw;
+      margin-right: 5vw;
     }
    .printme{
     position: fixed;
     
     visibility: true;
-    transform: scale(1.01,1.0);
+    transform: scale(1.00,1.0);
    }
    nav{
     display:none;
@@ -40,7 +40,7 @@
     </div>
 </div>
   <div class="form-actions">
-    <%= f.button :submit,class: 'btn-large ' %>
+    <%= f.button :submit,class: 'btn-large ', :label=> 'Store Invoice' %>
   </div>
 
 <% end %>

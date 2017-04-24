@@ -1,8 +1,8 @@
 
-<%= javascript_include_tag "materialform" %>
 <div class="row">
 <%= form_for(appointment) do |f| %>
   <% if appointment.errors.any? %>
+
     <div id="error_explanation">
       <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
 
@@ -15,16 +15,16 @@
   <% end %>
 
     <label for=""> <%= f.label :appointment_date %></label>
-  <div class="input-field">
-    <%= f.text_field :appointment_date,:class=>"datepicker"%>
+  <div class="input">
+    <%= f.text_field :appointment_date,:class=>"datepicker", :value=> appointment.appointment_date || Date.tomorrow+1%>
   </div>
 
 
 
   
     <%= f.label :appointment_time %>
-  <div class="input-field" style="width:25%">
-    <%= f.time_select :appointment_time, {minute_step: 20,ampm: true,start_hour: 8,end_hour:21 } %>
+  <div class="input" style="width:25%">
+    <%= f.time_select :appointment_time, {minute_step: 20,ampm: true,start_hour: 8,end_hour:21, prompt: true} %>
   </div>
 
   
@@ -41,7 +41,7 @@
   </div>
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create Appointment", :class => "btn btn-large waves-effect waves-light"%>
   </div>
 <% end %>
 

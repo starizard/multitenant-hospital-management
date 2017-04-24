@@ -12,8 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require materialize
 //= require turbolinks
+//= require materialize
+//= require materialize-sprockets
 //= require_tree .
   $(document).ready(function() {
   $('select').material_select();
@@ -22,5 +23,6 @@
     selectYears: 2 // Creates a dropdown of 15 years to control year
   });
 $(".button-collapse").sideNav();
-        
+
+
 });

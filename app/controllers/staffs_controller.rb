@@ -1,6 +1,6 @@
 class StaffsController < ApplicationController
   before_action :set_staff, only: [:show, :edit, :update, :destroy]
-
+  before_filter :deny_to_visitors
   # GET /staffs
   # GET /staffs.json
   def index
@@ -63,6 +63,12 @@ class StaffsController < ApplicationController
   end
 
   private
+
+
+    def deny_to_visitors
+      redirect_to root_path unless doctor_signed_in? or hospital_signed_in?
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_staff
       @staff = Staff.find(params[:id])

@@ -1,35 +1,43 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Staffs</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Position</th>
-      <th>Joined</th>
-      <th>Phone</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<h1 class="center-align">Staff List</h1>
 
-  <tbody>
-    <% @staffs.each do |staff| %>
-      <tr>
-        <td><%= staff.name %></td>
-        <td><%= staff.position %></td>
-        <td><%= staff.joined %></td>
-        <td><%= staff.phone %></td>
-        <td><%= staff.image %></td>
-        <td><%= link_to 'Show', staff %></td>
-        <td><%= link_to 'Edit', edit_staff_path(staff) %></td>
-        <td><%= link_to 'Destroy', staff, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+
+
+<div class="center-align"><%= link_to 'Create Staff', new_staff_path, class:'btn btn-large waves-light waves-effect' %>
+
+</div>
 
 <br>
+<hr>
+<div class="row">
 
-<%= link_to 'New Staff', new_staff_path %>
+
+  <% @staffs.each do |staff| %>
+   <div class="col m4">
+      <div class="card small z-depth-5 hover">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" style="width: 250px;height:200px;" src="<%=staff.image%>">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4"><h5><%= staff.name %></h5><i class="material-icons right">more_vert</i></span>
+          
+        </div>
+        <div class="card-reveal yellow-text red lighten-2">
+          <span class="card-title white-text text-darken-4"><%= staff.position %><i class="material-icons right">close</i></span>
+          <p><b>Phone: </b><%= staff.phone %></p>
+          <p><b>Joined: </b><%= staff.joined %></p>
+          <div class="card-action">
+          <p><%= link_to 'Edit', edit_staff_path(staff) %><%= link_to 'Destroy', staff, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+          </div>
+
+        </div>
+      </div>
+      </div>    
+  <% end %>
+
+
+
+
+</div>

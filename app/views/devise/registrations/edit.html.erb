@@ -1,7 +1,28 @@
+
+<<div class="card">
+<div class="card-content">
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
+    <div class="field">
+    <%= f.label :logo %><br />
+    <%= f.text_field :logo %>
+  </div>
+   <div class="field">
+    <%= f.label :home_image1 %><br />
+    <%= f.text_field :home_image1 %>
+  </div>
+      <div class="field">
+    <%= f.label :home_image2 %><br />
+    <%= f.text_field :home_image2%>
+  </div>
+    <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_area :address%>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -32,12 +53,13 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update",class:'btn btn-large' %>
   </div>
 <% end %>
 
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete ,class:'btn btn-large red'%></p>
 
 <%= link_to "Back", :back %>
+</div>

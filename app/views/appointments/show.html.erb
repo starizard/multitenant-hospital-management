@@ -1,24 +1,29 @@
-<p id="notice"><%= notice %></p>
+<div class="card">
+	<div class="card-content">
+		
+		<p>
+		  <b>Appointment date:</b>
+		  <%= @appointment.appointment_date.strftime("%d %B %Y") %>
+		</p>
 
-<p>
-  <strong>Appointment date:</strong>
-  <%= @appointment.appointment_date %>
-</p>
+		<p>
+		  <b>Appointment time:</b>
+		  <%= @appointment.appointment_time.strftime("%H:%M") %>
+		</p>
 
-<p>
-  <strong>Appointment time:</strong>
-  <%= @appointment.appointment_time %>
-</p>
+		<p>
+		  <b>Patient:</b>
+		  <%= @appointment.user.name %>
+		</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @appointment.user.name %>
-</p>
+		<p>
+		  <b>Doctor:</b>
+		  <%= @appointment.doctor.name %>
+		</p>
 
-<p>
-  <strong>Doctor:</strong>
-  <%= @appointment.doctor.name %>
-</p>
+		<%= link_to 'Edit', edit_appointment_path(@appointment), class: 'btn btn-large' %> 
+		<%= link_to 'Back', user_profile_path, class: 'btn btn-large indigo'%>
 
-<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
-<%= link_to 'Back', appointments_path %>
+	</div>
+	
+</div>

@@ -1,4 +1,5 @@
 class DoctorController < ApplicationController
+  before_filter :authenticate_doctor!
   def profile
   	@doctor = current_doctor
   	@appointments = @doctor.appointments.order(:appointment_date,:appointment_time)

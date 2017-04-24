@@ -1,3 +1,5 @@
+<div class="card">
+<div class="card-content">
 <h2>Edit</h2>
 
 <%= simple_form_for @doctor, url: registration_path(:doctor), validate: true do |f| %>
@@ -15,9 +17,11 @@
     <%= f.input :password %>
     <%= f.input :password_confirmation %>
     <%= f.input :current_password %>
-    <%= f.button :submit %>
+    <%= f.button :submit,class:'btn btn-large' %>
 <% end %>
 
 
 
 <%= link_to "Back", :back %>
+</div>
+</div>

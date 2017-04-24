@@ -1,2 +1,10 @@
-<h1>StaticPages#about</h1>
-<p>Find me in app/views/static_pages/about.html.erb</p>
+
+<div class="card center-align" style="width: 96vw;position:absolute;left:2vw;">
+<div class="card-content">
+	<h1 >About <%=@hname.titleize%></h1>
+	<% if @hname !=@root %>
+	<img src="<%=@this_hospital.home_image2%>" class="responsive-img" size="1200x800"> 
+	<%end%>
+</div>
+	
+</div>

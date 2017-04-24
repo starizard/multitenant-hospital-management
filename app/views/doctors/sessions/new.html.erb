@@ -1,4 +1,6 @@
-<h2>Doctor Log in</h2>
+<div class="card">
+<div class="card-content">
+<h2>Doctor Login</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -19,8 +21,10 @@
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in",class:'btn btn-large' %>
   </div>
 <% end %>
 
 <%= render "doctors/shared/links" %>
+</div>
+</div>

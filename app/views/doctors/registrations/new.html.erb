@@ -1,3 +1,5 @@
+<div class="card">
+<div class="card-content">
 <h2>Doctor Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -30,8 +32,11 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up",class:'btn btn-large' %>
   </div>
 <% end %>
 
 <%= render "doctors/shared/links" %>
+
+</div>
+</div>

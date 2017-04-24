@@ -2,15 +2,16 @@
 
 	
 
-<div class="center-align">
-	<h2> Welcome to Muten.org </h2>
-</div>
-<div class="card red  lighten-1 medium">
 
-            <div class="card-content white-text">
-		            <div class="card red lighten-2 small col m6">
+<div class="card white  darken-2 medium" style="height: 95vh;">
 
-		              <div class="card-content white-text">
+            <div class="card-content black-text">
+					<div class="center-align">
+					<h2> Welcome to Muten.org </h2>
+					</div>
+		            <div class="card white lighten-1 small col m6">
+
+		              <div class="card-content brown-text">
 			              <span class="card-title"><h4>Features</h4></span>
 
 							      <li class="collection-item">Patient Registration</li>
@@ -23,9 +24,9 @@
 							      <li class="collection-item">Staff management</li>
 					   </div>
 					</div>
-		            <div class="card red lighten-2 small col m6">
+		            <div class="card white lighten-1 small col m6">
 
-		              <div class="card-content white-text">
+		              <div class="card-content brown-text">
 			              <span class="card-title"><h4>Why Choose Us?</h4></span>
 
 							      <li class="collection-item">Easy to use and learn</li>
@@ -39,9 +40,16 @@
 					   </div>
 					</div>
             </div>
-            <div class="card-action center-align">
+            <div class="card-action center-align" >
+              
+              <% if hospital_signed_in? %>
+              <%= link_to "Log out",destroy_hospital_session_path,method: :delete,class: 'btn btn-large red'%>
+              <%= link_to "Edit Hospital",edit_hospital_registration_path,class: 'btn btn-large indigo'%>
+              <% else%>
               <a href="<%= new_hospital_registration_path%>" class="btn btn-large waves-effect waves-light">Get Started</a>
-
+              	<h3>Existing User? </h3>
+              	<%= link_to "Login",new_hospital_session_path,class: 'btn btn-large indigo'%>
+              <% end%>
             </div>
           </div>
 </div>

@@ -1,13 +1,26 @@
-<div class="row">
+<style type="text/css">
+
+.card{
+	width: 96vw;
+	position: absolute;
+	left:2vw;
+}
+
+</style>
+
+<div class="row ">
 
 
+        
+					<div class="card card " id="home">
+						<div class="card-content brown-text center-align valign">
 
-					<div class="card card red  lighten-1 ">
-						<div class="card-content white-text center-align valign">
+						<%= image_tag(@this_hospital.home_image1, size: "1800x800",class: "responsive-img")%>
 
 						<h2> Welcome to <%=@hname.titleize%> Hospitals </h2>
 						<hr>
 							<% if person_signed_in? %>
+
 							<div class="card-title ">
 									 <h5>Hello <%= @person.name.titleize%></h5>
 							</div>

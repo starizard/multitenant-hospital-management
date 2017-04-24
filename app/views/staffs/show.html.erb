@@ -1,5 +1,6 @@
-<p id="notice"><%= notice %></p>
-
+<div class="card">
+  <div class="card-content">
+    
 <p>
   <strong>Name:</strong>
   <%= @staff.name %>
@@ -25,5 +26,11 @@
   <%= @staff.image %>
 </p>
 
-<%= link_to 'Edit', edit_staff_path(@staff) %> |
-<%= link_to 'Back', staffs_path %>
+<%= link_to 'Edit', edit_staff_path(@staff),class: 'btn btn-large' %> 
+<%= link_to 'Back', staffs_path,class: 'btn btn-large indigo'  %>
+
+
+
+  </div>
+</div>
+

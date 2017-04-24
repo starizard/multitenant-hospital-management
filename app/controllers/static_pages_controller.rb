@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-	 # before_filter:go_to_subdomain, if: :hospital_signed_in?, only: :home
+	 #before_filter:go_to_subdomain, if: :hospital_signed_in?, only: :home
 
   def home
   	@person = current_person 
@@ -15,10 +15,11 @@ class StaticPagesController < ApplicationController
   end
 
   def go_to_subdomain
-  	if hospital_signed_in? 
-  		@curr_url = "http://"+current_hospital.subdomain+".muten.org"
+  	if hospital_signed_in?
+  		@curr_url = "http://"+current_hospital.subdomain+".lvh.me:3000"
+      redirect_to @curr_url 
 		end
-    redirect_to @curr_url 
+    
   end
 
 

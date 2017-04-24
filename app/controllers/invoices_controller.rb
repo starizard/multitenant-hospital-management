@@ -1,6 +1,6 @@
 class InvoicesController < ApplicationController
   before_action :set_invoice, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_hospital!
   # GET /invoices
   # GET /invoices.json
   def index
@@ -10,11 +10,13 @@ class InvoicesController < ApplicationController
   # GET /invoices/1
   # GET /invoices/1.json
   def show
+
   end
 
   # GET /invoices/new
   def new
     @invoice = Invoice.new
+
   end
 
   # GET /invoices/1/edit
@@ -25,10 +27,15 @@ class InvoicesController < ApplicationController
   # POST /invoices.json
   def create
     @invoice = Invoice.new(invoice_params)
-    @invoice.invoice_number = @invoice.invoice_number.to_s + @invoice.id.to_s
+    
+    
     respond_to do |format|
       if @invoice.save
-        format.html { redirect_to @invoice, notice: 'Invoice was successfully created.' }
+        format.html {
+         @invoice.invoice_number = @invoice.invoice_number.to_s + @invoice.id.to_s
+         @invoice.save
+         redirect_to @invoice, notice: 'Invoice was successfully created.' 
+       }
         format.json { render :show, status: :created, location: @invoice }
       else
         format.html { render :new }

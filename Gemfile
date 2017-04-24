@@ -32,6 +32,7 @@ gem 'devise'
 gem 'rails_admin', '~> 1.1.1'
 gem 'materialize-sass'
 gem 'simple_form'
+gem 'jquery-turbolinks'
 
 
 # Use Redis adapter to run Action Cable in production
