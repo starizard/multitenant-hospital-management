@@ -6,7 +6,9 @@ class ApplicationController < ActionController::Base
   def set_title
     @hname = request.base_url.split('//').second.split('.').first
     @root = 'muten'
-    @this_hospital = @this_hospital || Hospital.find_by_subdomain(@hname)
+    if(@hname != @root)
+      @this_hospital = @this_hospital || Hospital.find_by_subdomain(@hname)
+    end
   end
   protected
  
