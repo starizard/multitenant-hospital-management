@@ -9,8 +9,11 @@
           	<h4><%= @doctor.name %></h4>
           	<p><%= @doctor.email%></p>
           	<p><%= @doctor.phone%></p>
-          	<p><%= @doctor.department.dname%></p>
-
+            <%if @doctor.department_id%>
+                <p><%= @doctor.department.dname%></p>
+                <% else %>
+                <p class="red lighten-2">  Account not activated, please contact the hospital admin</p>
+            <% end%>
         </div>
         <div class="card-action">
           <i class="mode_edit"></i><%= link_to "Edit Profile", edit_doctor_registration_path, :class=>"waves-effect waves-light btn pulse"%>

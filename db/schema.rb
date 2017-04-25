@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170423105502) do
+ActiveRecord::Schema.define(version: 20170425090054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,10 @@ ActiveRecord::Schema.define(version: 20170423105502) do
     t.date     "joined"
     t.string   "phone"
     t.string   "position"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.index ["confirmation_token"], name: "index_doctors_on_confirmation_token", unique: true, using: :btree
     t.index ["department_id"], name: "index_doctors_on_department_id", using: :btree
     t.index ["email"], name: "index_doctors_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_doctors_on_reset_password_token", unique: true, using: :btree
@@ -78,6 +82,10 @@ ActiveRecord::Schema.define(version: 20170423105502) do
     t.string   "home_image1"
     t.string   "home_image2"
     t.text     "address"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.index ["confirmation_token"], name: "index_hospitals_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_hospitals_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_hospitals_on_reset_password_token", unique: true, using: :btree
   end
@@ -131,6 +139,10 @@ ActiveRecord::Schema.define(version: 20170423105502) do
     t.string   "name"
     t.string   "age"
     t.string   "phone"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

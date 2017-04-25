@@ -1,7 +1,7 @@
 <div class="card">
 <div class="card-content">
 <h2>Edit</h2>
-
+<%= javascript_include_tag "materialform" %>
 <%= simple_form_for @doctor, url: registration_path(:doctor), validate: true do |f| %>
     <%= f.error_notification %>
     <%= devise_error_messages! %>
@@ -10,7 +10,7 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
-    
+    <%= f.input :joined,as: :date %>
     <%= f.input :qualification %>
     <%= f.input :about, :as => :text, :input_html =>{:style=> 'width: 100%;', :rows => 4}%>
     <%= f.input :email %>

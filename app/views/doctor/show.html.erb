@@ -12,8 +12,12 @@
           	
           	<p><%= @doctor.phone%></p>
           	<p><%= @doctor.position%></p>
+          	 <%if @doctor.department_id%>
+                <p><%= @doctor.department.dname%></p>
+                <% else %>
+                <p class="red lighten-2">  Account is not activated</p>
+            <% end%>
           	
-          	<p><%= @doctor.department.dname%></p>
         </div>
        </div>
       </div>
@@ -28,7 +32,7 @@
    			<span class="card-title">
 	          <h3> About <%= @doctor.name.titleize %></h3>
 	        </span>
-          	<div><%= @doctor.about%></div>
+          	<div><p><%= simple_format(@doctor.about)%></p></div>
         </div>
        </div>
        <div class="card">
@@ -36,7 +40,7 @@
    			<span class="card-title">
 	          <h3> Qualification</h3>
 	        </span>
-          	<div><%= @doctor.qualification%></div>
+          	<div><p><%=simple_format(@doctor.qualification)%></p></div>
         </div>
        </div>
 
