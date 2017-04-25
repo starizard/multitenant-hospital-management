@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base    
   before_action :configure_permitted_parameters, if: :devise_controller?
- # before_action :set_title
+ before_action :set_title
   devise_group :person, contains: [:doctor,:user]
 
   def set_title
