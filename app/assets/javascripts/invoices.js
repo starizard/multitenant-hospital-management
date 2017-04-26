@@ -27,7 +27,7 @@ $(document).ready(function(){
 });
  
  function printDiv() {
-   document.body.style.zoom = 0.95;
+   document.body.style.zoom = 1;
     window.print();
     
 }

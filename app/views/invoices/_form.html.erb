@@ -4,20 +4,29 @@
       
       margin-right: 5vw;
     }
+    .printme b{
+      font-size:20px;
+    }
    .printme{
     position: fixed;
-    
+    padding: 0px 0px 0px 0px;
     visibility: true;
     transform: scale(1.00,1.0);
    }
-   nav{
+   nav,.nav-wrapper,.purple{
     display:none;
+   }
+   header h1{
+    background: #4A148C !important;
    }
    button,.btn-large{
     display:none;
    }
   }
-
+.printme{
+  background: white;
+  padding: 50px 50px 50px 50px;
+}
 
 </style>
 <%= javascript_include_tag "invoices" %>
@@ -25,6 +34,8 @@
   
 
 <%= render 'invoice' %>
+
+
 </div>
 <hr>
 <%= simple_form_for(@invoice) do |f| %>
